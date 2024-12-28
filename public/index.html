@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--<link rel="preconnect" href="https://fonts.googleapis.com"> -->
-  <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   <title>Máquina de Perfumes</title>
   <style>
     body {
@@ -35,16 +35,17 @@
 
     h1, h2 {
       margin: 0;
-      font-family: 'Playfair Display', serif
+      font-family: 'Montserrat', serif;
+      color: white;
+      
     }
     /* Pantalla de inicio */
     #inicio {
-    background-image: url("/still-2608673_1920.jpg");
-    background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco semitransparente */
+    background-image: url("Inicio_desk.png");
     background-blend-mode: lighten; /* Combina la imagen y el fondo */
     }
     #inicio h1 {
-      font-size: 3rem;
+      font-size: 6vw; 
       animation: fadeIn 2s;
     }
     @keyframes fadeIn {
@@ -110,49 +111,123 @@
     }
     /* Navegación */
     nav {
-    position: fixed;
-    top: 0; /* Fijo al tope */
+  position: fixed;
+  top: 0; /* Fijo al tope */
+  left: 0;
+  width: 100vw; /* Ocupa todo el ancho */
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Línea divisoria minimalista */
+  z-index: 10; /* Siempre encima del contenido */
+  display: flex;
+  justify-content: space-between; /* Espacio entre el icono de hamburguesa y el menú */
+  align-items: center; /* Alinea verticalmente */
+  padding: 10px 20px; /* Espaciado interno */
+  font-family: 'Playfair Display', sans-serif; /* Fuente limpia */
+  font-size: 18px; /* Tamaño del texto más grande */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.subtitulos {
+  font-family: "Playfair Display";
+  color:white;
+  font-size:2rem;
+}
+/* Estilo del icono de hamburguesa */
+.hamburger {
+  font-size: 30px;
+  cursor: pointer;
+  display: none; /* Se ocultará por defecto en pantallas grandes */
+}
+
+/* Menú */
+.menu {
+  display: flex;
+  justify-content: space-evenly; /* Espacio entre los enlaces */
+  align-items: center; /* Alinea verticalmente */
+}
+
+.menu a {
+  text-decoration: none; /* Sin subrayado */
+  color: #000; /* Texto negro */
+  margin: 0 15px; /* Espaciado entre enlaces */
+  padding: 5px 10px; /* Relleno para clics cómodos */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+.menu a:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Fondo negro suave al pasar el mouse */
+  color: #333; /* Oscurece ligeramente el texto */
+}
+
+@media (max-width: 768px) {
+  /* Mostrar el icono de hamburguesa en pantallas pequeñas */
+  .hamburger {
+    display: block;
+  }
+
+  /* Ocultar el menú por defecto en pantallas pequeñas */
+  .menu {
+    display: none;
+    flex-direction: column; /* Los enlaces estarán en columna */
+    width: 100%; /* El menú ocupará todo el ancho */
+    position: absolute;
+    top: 0;
     left: 0;
-    width: 100vw; /* Ocupa todo el ancho */
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Línea divisoria minimalista */
-    z-index: 10; /* Siempre encima del contenido */
-    display: flex;
-    justify-content: space-evenly; /* Espacio entre los elementos */
-    align-items: center; /* Alinea verticalmente */
-    padding: 10px 20px; /* Espaciado interno */
-    font-family: 'Arial', sans-serif; /* Fuente limpia */
-    font-size: 18px; /* Tamaño del texto más grande */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo del menú */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para el menú */
+    padding: 20px;
+  }
+
+  .menu a {
+    margin: 10px 0; /* Espaciado entre enlaces */
+    width: 100%; /* Cada enlace ocupará el ancho completo */
+    text-align: center; /* Centrar el texto */
+  }
+
+  #inicio {
+    background-image: url("Inicio_mob.png")!important;
+    } 
+  
+    #inicio h1 {
+      padding: 50px 0;
+    font-size: 12vw;  /* Tamaño fijo para pantallas pequeñas */
+  }
+
+  .subtitulos {
+  font-family: "Playfair Display", serif;
+  
+  font-size: 2rem;     /* Ajusta el tamaño de fuente según tus necesidades */
+  text-align: center;  /* Centra el texto horizontalmente */
+  margin: 0;           /* Elimina márgenes extra */
+  padding: 50px 0;     /* Añade espacio superior e inferior */
+}
+  
 }
 
-nav a {
-    text-decoration: none; /* Sin subrayado */
-    color: #000; /* Texto negro */
-    margin: 0 15px; /* Espaciado entre enlaces */
-    padding: 5px 10px; /* Relleno para clics cómodos */
-    border-radius: 5px; /* Bordes redondeados */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
-}
-
-nav a:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Fondo negro suave al pasar el mouse */
-    color: #333; /* Oscurece ligeramente el texto */
-}
   </style>
 </head>
 <body>
   <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#perfumes">Perfumes</a>
-    <a href="#ubicaciones">Ubicaciones</a>
-    <a href="#contacto">Contáctanos</a>
+    <!-- Icono de hamburguesa -->
+    <div class="hamburger" id="hamburger">
+      &#9776; <!-- Este es el ícono de hamburguesa -->
+    </div>
+    
+    <!-- Menú de navegación -->
+    <div class="menu" id="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#perfumes">Perfumes</a>
+      <a href="#ubicaciones">Ubicaciones</a>
+      <a href="#contacto">Contáctanos</a>
+    </div>
   </nav>
   <div class="container">
     <!-- Inicio -->
     <section id="inicio">
-      <h1>Bienvenido a nuestra Máquina de Perfumes</h1>
-      <p>Descubre una experiencia única y aromas inolvidables.</p>
+      <h1>SPRAYSMART</h1>
+      <p class="subtitulos">Parfümautomat
+        Rundumservice</p>
     </section>
     <!-- Perfumes -->
     <section id="perfumes">
@@ -183,3 +258,29 @@ nav a:hover {
   </div>
 </body>
 </html>
+<script>
+  // Seleccionar el icono de hamburguesa y el menú
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+  const menuLinks = document.querySelectorAll('#menu a'); // Seleccionamos todos los enlaces dentro del menú
+
+  // Añadir evento al icono de hamburguesa
+  hamburger.addEventListener('click', () => {
+    // Alternar la visibilidad del menú
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Cerrar el menú si el usuario hace clic fuera de él
+  window.addEventListener('click', (event) => {
+    if (!menu.contains(event.target) && event.target !== hamburger) {
+      menu.style.display = 'none'; // Cerrar el menú
+    }
+  });
+
+  // Cerrar el menú al hacer clic en un enlace dentro del menú
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menu.style.display = 'none'; // Cerrar el menú
+    });
+  });
+</script>
