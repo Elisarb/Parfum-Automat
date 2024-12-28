@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <title>Máquina de Perfumes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      scroll-behavior: smooth;
+      overflow: hidden; /* Opcional: previene scroll horizontal accidental */
+      margin-top: 60px;
+    }
+    .container {
+      height: 100vh; /* El contenedor ocupa toda la pantalla */
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+    }
+    section {
+      height: 100vh; /* Cada sección ocupa toda la pantalla */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      scroll-snap-align: start;
+      transition: transform 0.6s ease, background-color 0.6s ease;
+      background-size: cover;
+    background-position: center;
+    color: black; /* Para un contraste limpio */
+    }
+
+    h1, h2 {
+      margin: 0;
+      font-family: 'Playfair Display', serif
+    }
+    /* Pantalla de inicio */
+    #inicio {
+    background-image: url("still-2608673_1920.jpg");
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco semitransparente */
+    background-blend-mode: lighten; /* Combina la imagen y el fondo */
+    }
+    #inicio h1 {
+      font-size: 3rem;
+      animation: fadeIn 2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Pantalla de perfumes */
+    #perfumes {
+  background-image: url('ruta-imagen-perfumes.jpg');
+  background-color: rgba(240, 240, 230, 0.7); /* Beige claro */
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      color: black;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    /* Pantalla de ubicaciones */
+    #ubicaciones {
+    background-image: url('ruta-imagen-ubicaciones.jpg');
+    background-color: rgba(0, 0, 0, 0.5); /* Negro suave */
+    color: white; /* Contraste necesario */
+    }
+    iframe {
+      border: none;
+      border-radius: 10px;
+      width: 80%;
+      height: 60%;
+    }
+    /* Pantalla de contacto */
+    #contacto {
+    background-image: url('ruta-imagen-contacto.jpg');
+    background-color: rgba(250, 240, 230, 0.8); /* Beige sofisticado */
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 80%;
+      max-width: 400px;
+    }
+    input, textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px;
+      background: #f4b400;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ff7043;
+    }
+    /* Navegación */
+    nav {
+    position: fixed;
+    top: 0; /* Fijo al tope */
+    left: 0;
+    width: 100vw; /* Ocupa todo el ancho */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Línea divisoria minimalista */
+    z-index: 10; /* Siempre encima del contenido */
+    display: flex;
+    justify-content: space-evenly; /* Espacio entre los elementos */
+    align-items: center; /* Alinea verticalmente */
+    padding: 10px 20px; /* Espaciado interno */
+    font-family: 'Arial', sans-serif; /* Fuente limpia */
+    font-size: 18px; /* Tamaño del texto más grande */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+nav a {
+    text-decoration: none; /* Sin subrayado */
+    color: #000; /* Texto negro */
+    margin: 0 15px; /* Espaciado entre enlaces */
+    padding: 5px 10px; /* Relleno para clics cómodos */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+}
+
+nav a:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Fondo negro suave al pasar el mouse */
+    color: #333; /* Oscurece ligeramente el texto */
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#perfumes">Perfumes</a>
+    <a href="#ubicaciones">Ubicaciones</a>
+    <a href="#contacto">Contáctanos</a>
+  </nav>
+  <div class="container">
+    <!-- Inicio -->
+    <section id="inicio">
+      <h1>Bienvenido a nuestra Máquina de Perfumes</h1>
+      <p>Descubre una experiencia única y aromas inolvidables.</p>
+    </section>
+    <!-- Perfumes -->
+    <section id="perfumes">
+      <h2>Nuestros Perfumes</h2>
+      <div class="grid">
+        <div class="card">Perfume 1</div>
+        <div class="card">Perfume 2</div>
+        <div class="card">Perfume 3</div>
+        <div class="card">Perfume 4</div>
+      </div>
+    </section>
+    <!-- Ubicaciones -->
+    <section id="ubicaciones">
+      <h2>Ubicaciones</h2>
+      <p>Encuentra nuestra máquina cerca de ti:</p>
+      
+    </section>
+    <!-- Contacto -->
+    <section id="contacto">
+      <h2>Contáctanos</h2>
+      <form>
+        <input type="text" placeholder="Tu nombre" required>
+        <input type="email" placeholder="Tu correo" required>
+        <textarea placeholder="Tu mensaje" rows="4" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </div>
+</body>
+</html>
