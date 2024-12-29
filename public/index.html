@@ -43,7 +43,7 @@
     #inicio {
   background-color: black; /* Fondo negro */
   background-repeat: no-repeat;
-  background-size: auto 80%;
+  background-size: auto 100%;
   position: relative; /* Para el control de animaciones */
   overflow: hidden;
 }
@@ -105,10 +105,10 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       text-align: center;
     }
-    /* Pantalla de ubicaciones */
-    #ubicaciones {
+    /* Pantalla de platzierungspartner */
+    #platzierungspartner {
 
-    background-color: rgba(0, 0, 0, 0.5); /* Negro suave */
+    background-color: #6f0062; /* Negro suave */
     color: white; /* Contraste necesario */
     }
     iframe {
@@ -175,6 +175,7 @@
 }
 /* Estilo del icono de hamburguesa */
 #hamburger {
+  display:none;
   background: none;
   border: none;
   font-size: 30px; /* Ajusta el tamaño del ícono */
@@ -187,8 +188,10 @@
 .menu {
 
   display: flex;
-  justify-content: space-evenly; /* Espacio entre los enlaces */
+  justify-content: space-around; /* Espacio entre los enlaces */
   align-items: center; /* Alinea verticalmente */
+  width:100%;
+
 }
 
 .menu a {
@@ -329,6 +332,100 @@
   animation-duration: 8s;
 }
 
+.content {
+  max-width: calc(100% - 40px);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Titles */
+.section-title {
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.section-description {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  color: #eaeaea;
+}
+
+/* Info Cards */
+.info-cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.info-card {
+  width: 45%;
+  background-color: #54005d;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.info-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.info-card-title {
+  font-size: 24px;
+  color: #e121b5;
+  margin-bottom: 20px;
+}
+
+.info-card-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #eaeaea;
+}
+
+/* Features */
+.features {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.features-title {
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  font-size: 16px;
+  color: #ddd;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.features-list li {
+  margin-bottom: 15px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 @keyframes square {
   0% {
@@ -342,7 +439,7 @@
 
 @media (max-width: 768px) {
   /* Mostrar el icono de hamburguesa en pantallas pequeñas */
-  .hamburger {
+  #hamburger {
     display: block;
   }
 
@@ -387,7 +484,38 @@
   position: relative;
   top: 50%;
 }
-  
+
+.section-title{
+  margin: 40px 0px 0px 0px;
+  word-wrap: break-word;
+}
+
+.section-description {
+  font-size: 1rem;
+  margin-bottom:0px;
+}
+
+.info-cards{
+  margin-top:10px;
+}
+
+.info-card{
+width:80%;
+padding:15px;
+
+}
+.info-card-title {
+  font-size: 1rem;
+  color: #e121b5;
+  margin-bottom: 20px;
+}
+
+.info-card-description {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #eaeaea;
+}
+
 }
 
   </style>
@@ -404,7 +532,7 @@
       <button id="close-menu">X</button>
       <a href="#inicio">Inicio</a>
       <a href="#perfumes">Perfumes</a>
-      <a href="#ubicaciones">Ubicaciones</a>
+      <a href="#platzierungspartner">Platzierungspartner</a>
       <a href="#contacto">Contáctanos</a>
     </div>
   </nav>
@@ -428,6 +556,31 @@
         </ul>
     </div>
     </section>
+
+        <!-- platzierungspartner -->
+        <section id="platzierungspartner">
+          <div class="content">
+            <h2 class="section-title">Platzierungspartner</h2>
+            <p class="section-description">
+              Durch unseren Automaten gestalten wir Ihr Gebäude noch attraktiver und einladender.
+            </p>
+            <div class="info-cards">
+              <div class="info-card">
+                <h3 class="info-card-title">UMKOMPLIZIERTHEIT</h3>
+                <p class="info-card-description">
+                  Sie haben die Möglichkeit: entweder direkt zwei Automaten oder zunächst einen Automaten.
+                </p>
+              </div>
+              <div class="info-card">
+                <h3 class="info-card-title">FINANZIELLER GEWINN</h3>
+                <p class="info-card-description">
+                  Sie erhalten eine prozentuale Gewinnmarge. Zudem erhalten Sie bei steigender Beliebtheit einen höheren Gewinn.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
     <!-- Perfumes -->
     <section id="perfumes">
       <h2>Nuestros Perfumes</h2>
@@ -438,12 +591,7 @@
         <div class="card">Perfume 4</div>
       </div>
     </section>
-    <!-- Ubicaciones -->
-    <section id="ubicaciones">
-      <h2>Ubicaciones</h2>
-      <p>Encuentra nuestra máquina cerca de ti:</p>
-      
-    </section>
+
     <!-- Contacto -->
     <section id="contacto">
       <h2>Contáctanos</h2>
