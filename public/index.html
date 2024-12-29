@@ -41,13 +41,48 @@
     }
     /* Pantalla de inicio */
     #inicio {
-    background-image: url("Inicio_desk.png");
-    background-blend-mode: lighten; /* Combina la imagen y el fondo */
-    }
-    #inicio h1 {
-      font-size: 6vw; 
-      animation: fadeIn 2s;
-    }
+  background-color: black; /* Fondo negro */
+  background-repeat: no-repeat;
+  background-size: auto 80%;
+  position: relative; /* Para el control de animaciones */
+  overflow: hidden;
+}
+
+#inicio::after {
+  content: ""; /* Elemento decorativo para la imagen */
+  position: absolute;
+  top: 10%; /* Espacio negro arriba */
+  bottom: 10%; /* Espacio negro abajo */
+  right: -100%; /* Comienza fuera de la pantalla */
+  width: calc(50% + 2px); /* Ajuste a la izquierda: 2px más */
+  background-image: url("glass-2418157_1280.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 9; /* Detrás de las letras */
+  animation: slideIn 2s ease forwards; /* Animación */
+}
+
+@keyframes slideIn {
+  0% {
+    right: -100%; /* Empieza fuera de la pantalla */
+    opacity: 0; /* Transparente */
+  }
+  100% {
+    right: 0; /* Termina en la posición deseada */
+    opacity: 1; /* Totalmente visible */
+  }
+}
+#inicio h1 {
+  font-size: 6vw;
+  animation: fadeIn 2s;
+  z-index: 99;
+  text-align: center; /* Centrar el texto */
+  margin-bottom: 10px; /* Espaciado para separación */
+  position: relative;
+  top: 50%; /* Para asegurarnos que esté centrado verticalmente */
+  transform: translateY(-50%); /* Centrado perfecto */
+}
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -131,6 +166,12 @@
   font-family: "Playfair Display";
   color:white;
   font-size:2rem;
+  z-index:99;
+  text-align: center; /* Centrar horizontalmente */
+  position: relative;
+  margin: 0;
+  margin-top: 10px; /* Espaciado bajo el h1 */
+  top: 50%;
 }
 /* Estilo del icono de hamburguesa */
 .hamburger {
@@ -160,6 +201,132 @@
   color: #333; /* Oscurece ligeramente el texto */
 }
 
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bg-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.bg-bubbles li {
+  position: absolute;
+  bottom: -200px; /* Fuera del viewport */
+  background-color: #3333336f; /* Color cuadrado */
+  list-style: none;
+  animation: square 25s infinite linear;
+}
+
+/* Animación para subir */
+@keyframes square {
+  0% {
+    transform: translateY(100vh); /* Fuera del viewport */
+    opacity: 0; /* Inicialmente invisible */
+  }
+  5% {
+    opacity: 1; /* Aparecen gradualmente */
+  }
+  100% {
+    transform: translateY(-200vh) rotate(360deg); /* Salen del viewport por arriba */
+    opacity: 0; /* Desaparecen al salir */
+  }
+}
+
+/* Configuración específica para cada cuadrado */
+.bg-bubbles li:nth-child(1) {
+  left: 5%;
+  width: 40px;
+  height: 40px;
+}
+
+.bg-bubbles li:nth-child(2) {
+  left: 15%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0.5s;
+}
+
+.bg-bubbles li:nth-child(3) {
+  left: 25%;
+  width: 40px;
+  height: 40px;
+  animation-duration: 3s;
+  animation-delay: 1s;
+}
+
+.bg-bubbles li:nth-child(4) {
+  left: 35%;
+  width: 60px;
+  height: 60px;
+  animation-duration: 5s;
+}
+
+.bg-bubbles li:nth-child(5) {
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  animation-duration: 7s;
+}
+
+.bg-bubbles li:nth-child(6) {
+  left: 65%;
+  width: 120px;
+  height: 120px;
+  animation-delay: 1s;
+  animation-duration: 9s;
+}
+
+.bg-bubbles li:nth-child(7) {
+  left: 75%;
+  width: 160px;
+  height: 160px;
+  animation-delay: 1s;
+  animation-duration: 2s;
+}
+
+.bg-bubbles li:nth-child(8) {
+  left: 85%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 4s;
+}
+
+.bg-bubbles li:nth-child(9) {
+  left: 90%;
+  width: 10px;
+  height: 10px;
+  animation-delay: 3s;
+  animation-duration: 6s;
+}
+
+.bg-bubbles li:nth-child(10) {
+  left: 95%;
+  width: 160px;
+  height: 160px;
+  animation-delay: 4s;
+  animation-duration: 8s;
+}
+
+
+@keyframes square {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-700px) rotate(600deg);
+  }
+}
+
+
 @media (max-width: 768px) {
   /* Mostrar el icono de hamburguesa en pantallas pequeñas */
   .hamburger {
@@ -176,7 +343,7 @@
     left: 0;
     background-color: rgba(255, 255, 255, 0.9); /* Fondo del menú */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para el menú */
-    padding: 20px;
+    padding: 20px 0px;
   }
 
   .menu a {
@@ -186,21 +353,22 @@
   }
 
   #inicio {
-    background-image: url("Inicio_mob.png")!important;
+    background-color: black;
     } 
   
     #inicio h1 {
-      padding: 50px 0;
+      padding: 0px;
     font-size: 12vw;  /* Tamaño fijo para pantallas pequeñas */
   }
 
   .subtitulos {
   font-family: "Playfair Display", serif;
-  
-  font-size: 2rem;     /* Ajusta el tamaño de fuente según tus necesidades */
+  font-size: 1.5rem;     /* Ajusta el tamaño de fuente según tus necesidades */
   text-align: center;  /* Centra el texto horizontalmente */
   margin: 0;           /* Elimina márgenes extra */
   padding: 50px 0;     /* Añade espacio superior e inferior */
+  position: relative;
+  top: 50%;
 }
   
 }
@@ -225,9 +393,22 @@
   <div class="container">
     <!-- Inicio -->
     <section id="inicio">
+      <div class="wrapper">
       <h1>SPRAYSMART</h1>
-      <p class="subtitulos">Parfümautomat
-        Rundumservice</p>
+      <p class="subtitulos">Parfümautomat Rundumservice</p>
+        <ul class="bg-bubbles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+    </div>
     </section>
     <!-- Perfumes -->
     <section id="perfumes">
@@ -260,27 +441,35 @@
 </html>
 <script>
   // Seleccionar el icono de hamburguesa y el menú
-  const hamburger = document.getElementById('hamburger');
-  const menu = document.getElementById('menu');
-  const menuLinks = document.querySelectorAll('#menu a'); // Seleccionamos todos los enlaces dentro del menú
+const hamburger = document.getElementById('hamburger');
+const menu = document.getElementById('menu');
+const menuLinks = document.querySelectorAll('#menu a'); // Seleccionamos todos los enlaces dentro del menú
 
-  // Añadir evento al icono de hamburguesa
-  hamburger.addEventListener('click', () => {
-    // Alternar la visibilidad del menú
-    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-  });
+// Función para controlar el menú en móviles
+function handleHamburgerMenu(event) {
+  if (window.innerWidth <= 768) {
+    // Alternar la visibilidad del menú hamburguesa
+    if (event.target === hamburger) {
+      menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+    }
 
-  // Cerrar el menú si el usuario hace clic fuera de él
-  window.addEventListener('click', (event) => {
+    // Cerrar el menú si el usuario hace clic fuera de él
     if (!menu.contains(event.target) && event.target !== hamburger) {
       menu.style.display = 'none'; // Cerrar el menú
     }
-  });
+  }
+}
 
-  // Cerrar el menú al hacer clic en un enlace dentro del menú
-  menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      menu.style.display = 'none'; // Cerrar el menú
-    });
+// Solo ocultar el menú hamburguesa en pantallas móviles
+window.addEventListener('click', handleHamburgerMenu);
+
+// Cerrar el menú al hacer clic en un enlace dentro del menú
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+      menu.style.display = 'none'; // Cerrar el menú en móviles
+    }
   });
+});
+
 </script>
