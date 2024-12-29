@@ -174,11 +174,13 @@
   top: calc(40% + 50px);
 }
 /* Estilo del icono de hamburguesa */
-.hamburger {
-  font-size: 30px;
+#hamburger {
+  background: none;
+  border: none;
+  font-size: 30px; /* Ajusta el tamaño del ícono */
   cursor: pointer;
-  display: none; /* Se ocultará por defecto en pantallas grandes */
-  z-index:999;
+  color: #333; /* Puedes cambiar el color si lo deseas */
+  padding: 5px;
 }
 
 /* Menú */
@@ -392,10 +394,10 @@
 </head>
 <body>
   <nav>
-    <!-- Icono de hamburguesa -->
-    <div class="hamburger" id="hamburger">
+
+    <button class="hamburger" id="hamburger" aria-label="Abrir menú">
       &#9776; <!-- Este es el ícono de hamburguesa -->
-    </div>
+    </button>
     
     <!-- Menú de navegación -->
     <div class="menu" id="menu">
