@@ -1027,7 +1027,7 @@ footer .remark a {
 
 
   body {
-    margin: 0;
+    margin-top: 90px;
     font-family: 'Arial', sans-serif;
     scroll-behavior: smooth;
     overflow-x: hidden; /* Opcional: previene scroll horizontal accidental */
@@ -1170,18 +1170,21 @@ background-color: rgba(240, 240, 230, 0.7); /* Beige claro */
   }
   /* Navegación */
   nav {
-top: 0; /* Fijo al tope */
-left: 0;
-background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
-border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Línea divisoria minimalista */
-z-index: 10; /* Siempre encima del contenido */
-display: flex;
-justify-content: space-between; /* Espacio entre el icono de hamburguesa y el menú */
-align-items: center; /* Alinea verticalmente */
-font-family: 'Playfair Display', sans-serif; /* Fuente limpia */
-font-size: 18px; /* Tamaño del texto más grande */
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-}
+    position: fixed; /* Fija el nav al top */
+    top: 0; /* Fijo al tope */
+    left: 0;
+    right: 0; /* Asegura que ocupe todo el ancho */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Línea divisoria minimalista */
+    z-index: 10; /* Siempre encima del contenido */
+    display: flex;
+    justify-content: space-between; /* Espacio entre el icono de hamburguesa y el menú */
+    align-items: center; /* Alinea verticalmente */
+    font-family: 'Playfair Display', sans-serif; /* Fuente limpia */
+    font-size: 18px; /* Tamaño del texto más grande */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  }
+  
 
 .subtitulos {
 font-family: "Playfair Display";
@@ -1567,18 +1570,20 @@ color: #eaeaea;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow:hidden;
   }
   
   .section-image {
     width: 100%;
-    height: auto;
+    height: 450px;
     border-radius: 8px;
+    object-fit: cover;
   }
   
   .right-side {
     flex: 1;
     max-width: 50%;
-    padding: 20px;
+    padding: 20px 20px 20px 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1612,7 +1617,7 @@ color: #eaeaea;
   }
   
   .info-card-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
   }
@@ -1709,5 +1714,306 @@ color: #eaeaea;
 
     }
   }
+
+  #vorteile {
+    padding: 40px 20px;
+    background-color: black;
+  }
   
+  .vorteile-content {
+    text-align: center;
+  }
   
+  .vorteile-title {
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #fff;
+  }
+  
+  /* Tarjetas de información */
+  .vorteile-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Asegura que las tarjetas tengan un tamaño mínimo de 300px, pero se expandan según el ancho disponible */
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 0 10px; /* Agrega un poco de margen horizontal */
+  }
+  
+  .vorteile-card {
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid #fff; /* Borde blanco */
+    border-radius: 12px; /* Esquinas redondeadas */
+    padding: 20px;
+    box-shadow: none; /* Sin sombra */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .vorteile-card:hover {
+    transform: translateY(-10px);
+    border-color: #ccc; /* Cambiar el borde a un gris claro al pasar el cursor */
+  }
+  
+  .vorteile-card-title {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: 'Montserrat';
+  }
+  
+  .vorteile-card-description {
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
+  /* Adaptación para móviles */
+  @media (max-width: 768px) {
+    .vorteile-title {
+      font-size: 2rem;
+    }
+  
+    .vorteile-card-title {
+      font-size: 1rem;
+    }
+  
+    .vorteile-card-description {
+      font-size: 0.8rem;
+    }
+  }
+  
+  #product-parameters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #3a3a3a;
+    color: #fff;
+  }
+  
+  /* Contenido principal */
+  .content-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top:0px;
+  }
+  
+  .text-container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .image-container {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end; /* Alinea la imagen a la derecha */
+    overflow:hidden;
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+    font-family: 'Montserrat';
+    text-align: center;
+  }
+  
+  .section-details {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    line-height:1.6;
+  }
+  
+  .card-container {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .card-item {
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 20px;
+    flex: 1;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .card-item:hover {
+    transform: translateY(-10px);
+    border-color: #ccc;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
+  /* Imagen principal */
+  .product-image {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  /* Adaptación para móviles */
+  @media (max-width: 768px) {
+
+    body{
+        margin-top: 48px;
+    }
+    #product-parameters {
+      flex-direction: column; /* Apila las secciones en móvil */
+      position:relative;
+    }
+  
+    .text-container, .image-container {
+      padding: 20px;
+      width: 100%;
+    }
+  
+    .section-heading {
+      font-size: 1.2rem;
+    }
+  
+    .section-details {
+      font-size: 0.8rem;
+    }
+  
+    .card-container {
+      flex-direction: column; /* Apila las tarjetas en móvil */
+    }
+    .content-container {
+        margin-top:200px;
+      }
+  }
+  
+  .section-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Elemento de cada item */
+  .section-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  /* Estilo para las imágenes de los perfumes */
+  .perfume-icon {
+    width: 30px; /* Tamaño del icono */
+    height: auto;
+    margin-right: 15px; /* Espacio entre el icono y el texto */
+  }
+  
+
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .section-details {
+      font-size: 0.8rem;
+    }
+
+    .image-container{
+        display:none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    
+  
+    .content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .left-side, .right-side {
+      max-width: 100%;
+      width: 100%;
+    }
+  
+    .section-title {
+      font-size: 1.2rem;
+    }
+  
+    .section-description {
+      font-size: 0.8rem;
+    }
+  
+    .info-cards {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+  
+    .info-card {
+      width: 90%;
+      margin-bottom: 20px;
+    }
+  
+    .info-card-title {
+      font-size: 1rem;
+    }
+  
+    .info-card-description {
+      font-size: 0.8rem;
+    }
+  }
+
+ /* Imagen solo visible en pantallas pequeñas */
+.mobile-image {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height:200px;
+  }
+  
+  .mobile-image-img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 425px) {
+    .mobile-image {
+      display: block; /* Mostrar la imagen solo en pantallas pequeñas */
+      height:200px;
+      overflow:hidden;
+    }
+  
+    .section-image {
+      display: none; /* Ocultar la imagen dentro del contenedor en pantallas pequeñas */
+    }
+  
+    .right-side {
+      padding: 10px;
+    }
+  
+    .mobile-image-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .content {
+        margin-top:200px;
+
+    }
+  }
+
+  .contact-info{
+    height: 200px;
+    background-color: white;
+  }
